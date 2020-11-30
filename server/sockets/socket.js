@@ -1,4 +1,4 @@
-const { io } = require('../server')
+const { io } = require('../server');
 
 io.on('connection', (client) => {
     console.log('Usuario conectado');
@@ -9,23 +9,8 @@ io.on('connection', (client) => {
 
     //Escuchar el client
     client.on('enviarMensaje', (data, callback) => {
+        console.log(data);
 
-        console.log(data)
-
-        client.broadcast.emit('enviarMensaje', data)
-
-
-
-        // if (mensaje.usuario) {
-        //     callback({
-        //         mensaje: 'Todo salio bien!',
-        //     });
-        // } else {
-        //     callback({
-        //         mensaje: 'algo salio mal!',
-        //     });
-        // }
+        client.broadcast.emit('enviarMensaje', data);
     });
 });
-
-

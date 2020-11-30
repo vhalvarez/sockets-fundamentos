@@ -11,12 +11,13 @@ socket.on('disconnect', function () {
 //Enviar información
 socket.emit(
     'enviarMensaje',
+    { usuario: 'Admin', mensaje: 'hola mundo' },
     (resp) => {
         console.log('respuesta server', resp);
     }
 );
 
 //Escuchar informacion
-socket.on('enviarMensaje', function(mensaje) {
-    console.log('Servidor:', mensaje)
-})
+socket.on('enviarMensaje', function (mensaje) {
+    console.log('Servidor:', mensaje);
+});
